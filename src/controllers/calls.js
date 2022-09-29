@@ -1,4 +1,5 @@
 const CallsModel = require("../models/calls");
+const db = require("../database");
 
 async function get(req, res) {
   const { id } = req.params;
@@ -11,6 +12,33 @@ async function get(req, res) {
   res.send(calls);
 }
 
+const post = async (req, res) => {
+  await db.connect();
+
+  const { title, description, plataform, link, date, time, participants } =
+    req.body;
+
+  const calls = new CallsModel({
+    title,
+    description,
+    plataform,
+    link,
+    date,
+    time,
+    participants,
+    updatedAt: new Date(),
+  });
+
+  const register = await calls.save();
+
+  if (register) {
+    res.status(201).json({ success: true });
+  } else {
+    res.status(201).json({ success: false });
+  }
+};
+
 module.exports = {
   get,
+  post,
 };

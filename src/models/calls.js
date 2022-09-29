@@ -14,15 +14,13 @@ const schema = new mongoose.Schema({
     type: String,
   },
   date: {
-    type: String
+    type: String,
   },
   time: {
     type: String,
   },
   participants: {
-    id: String,
-    name: String,
-    email: String,
+    type: Array,
   },
   updatedAt: {
     type: Date,
