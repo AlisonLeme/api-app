@@ -1,4 +1,4 @@
-const UsersModel = require("../models/users");
+const CallsModel = require("../models/calls");
 
 async function get(req, res) {
   const { id } = req.params;
@@ -6,9 +6,9 @@ async function get(req, res) {
   const obj = id ? { _id: id } : null;
 
   // pegando todos os produtos ou somendo um
-  const users = await UsersModel.find(obj);
+  const calls = await CallsModel.find(obj);
 
-  res.send(users);
+  res.send(calls);
 }
 
 module.exports = {
