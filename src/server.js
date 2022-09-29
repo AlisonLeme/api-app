@@ -1,5 +1,5 @@
 const express = require("express");
-//const cors = require("cors");
+const cors = require("cors");
 
 const routes = require("./routes");
 const db = require("./database");
@@ -10,7 +10,7 @@ const app = express();
 db.connect();
 
 // habilita CORS para todos
-//app.use(cors());
+app.use(cors());
 
 // habilita server para receber dados json
 app.use(express.json());
