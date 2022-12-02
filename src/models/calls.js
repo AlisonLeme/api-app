@@ -1,13 +1,16 @@
 const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
+  host: {
+    type: String,
+  },
   title: {
     type: String,
   },
   description: {
     type: String,
   },
-  platform: {
+  plataform: {
     type: String,
   },
   link: {

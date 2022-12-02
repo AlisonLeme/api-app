@@ -15,10 +15,10 @@ async function get(req, res) {
 const post = async (req, res) => {
   await db.connect();
 
-  const { title, description, plataform, link, date, time, participants } =
-    req.body;
+  const { host, title, description, plataform, link, date, time, participants } = req.body;
 
   const calls = new CallsModel({
+    host,
     title,
     description,
     plataform,
